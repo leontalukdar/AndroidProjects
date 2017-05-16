@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MultiPlayerNames extends AppCompatActivity {
 
@@ -24,12 +25,17 @@ public class MultiPlayerNames extends AppCompatActivity {
         String secondPlayer = secondPlayerText.getText().toString();
         player[0]=firstPlayer;
         player[1]=secondPlayer;
-        Intent intent = new Intent(this,MultiplayerActivity.class);
+        if(player[0].length()==0 || player[1].length()==0){
+            Toast.makeText(this,"Player names cannot be empty!",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Intent intent = new Intent(this,MultiplayerActivity.class);
 
-        intent.putExtra("PLAYERS",player);
+            intent.putExtra("PLAYERS",player);
 
-        startActivity(intent);
-        finish();
+            startActivity(intent);
+            finish();
+        }
 
     }
 

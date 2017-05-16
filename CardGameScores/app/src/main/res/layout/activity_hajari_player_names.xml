@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.beginners.cardgamescores.HajariPlayerNames">
+
+
+    <TextView
+        android:id="@+id/hajariPlayerNames"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Enter The Player Names"
+        android:textSize="30dp"/>
+
+    <EditText
+        android:id="@+id/firstPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="1st Player"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/hajariPlayerNames"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/secondPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="2nd Player"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/firstPlayer"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/thirdPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="3rd Player"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/secondPlayer"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/fourthPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="4th Player"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/thirdPlayer"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="64dp"
+        android:onClick="hajariScoreActivity"
+        android:text="@android:string/ok" />
+
+
+</RelativeLayout>
