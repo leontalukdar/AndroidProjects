@@ -1,7 +1,7 @@
 package com.beginners.myfirst2dgame;
 
 import android.graphics.Bitmap;
-import android.view.animation.Animation;
+import android.graphics.Canvas;
 
 /**
  * Created by LEON on 5/15/2017.
@@ -10,7 +10,6 @@ import android.view.animation.Animation;
 public class Player extends GameObject {
     private Bitmap spriteSheet;
     private int score;
-    private double dya;
     private boolean up;
     private boolean playing;
     private Animation animation = new Animation();
@@ -18,17 +17,18 @@ public class Player extends GameObject {
     private long startTime;
 
     public Player(Bitmap res,int w, int h, int numFrames){
-        x=100;
-        y= (int) (GamePanel.HEIGHT/2);
+        x=150;
+        y= (int) (GamePanel.HEIGHT/2-55);
         dy=0;
         score=0;
         height=h;
         width=w;
 
         Bitmap[] image = new Bitmap[numFrames];
+        spriteSheet = res;
 
         for (int i=0;i<image.length;i++){
-            image[i]=Bitmap.createBitmap(spriteSheet,i*width,0,width,height);
+            image[i]=Bitmap.createBitmap(spriteSheet,i*width,380,width,height);
         }
 
         animation.setFrames(image);
@@ -52,12 +52,46 @@ public class Player extends GameObject {
         animation.update();
 
         if (up){
-            dy= (int) (dya-=1.1);
+            dy-=1;
         }
         else {
-            dy = (int) (dya+=1.1);
+            dy +=1;
         }
 
+        if (dy>14){
+            dy=14;
+        }
+        if (dy<-14){
+            dy=-14;
+        }
+
+        y+=dy*2;
+        //y=Math.min(y,(int)GamePanel.HEIGHT-25);
+        //y=Math.max(y,0);
+    }
+
+    public void draw(Canvas canvas){
+        canvas.drawBitmap(animation.getImage(),x,y,null);
+    }
+
+    public int getScore(){
+        return score;
+    }
+
+    public boolean getPlaying(){
+        return playing;
+    }
+
+    public void setPlaying(boolean b){
+        playing=b;
+    }
+
+    public void resetDy(){
+        dy=0;
+    }
+
+    public void resetScore(){
+        score=0;
     }
 
 
